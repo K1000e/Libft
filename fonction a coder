@@ -1,41 +1,36 @@
 Part 1 - Fonctions de la libc
 
-a faire : 
-memset 
-bzero 
-memcpy  
-memccpy 
-memmove 
-memchr 
-memcmp 
-strlen X
-strdup 
-strcpy 
-strncpy 
-strcat 
-strncat 
-strlcat 
-strchr 
-strrchr 
-strstr 
-strnstr 
-strcmp 
-strncmp 
-atoi
-isalpha 
-isdigit 
-isalnum 
-isascii 
-isprint 
-toupper 
-tolower
-
-fait :
-
+fr_memset 
+fr_bzero 
+fr_memcpy  
+fr_memccpy 
+fr_memmove 
+fr_memchr 
+fr_memcmp 
+fr_strlen X
+fr_strdup 
+fr_strcpy 
+fr_strncpy 
+fr_strcat 
+fr_strncat 
+fr_strlcat 
+fr_strchr 
+fr_strrchr 
+fr_strstr 
+fr_strnstr 
+fr_strcmp 
+fr_strncmp 
+fr_atoi
+fr_isalpha 
+fr_isdigit 
+fr_isalnum 
+fr_isascii 
+fr_isprint 
+fr_toupper 
+fr_tolower
 
 Part 2 - Fonctions supplémentaires
 
-a faire :
 ft_memalloc
 ft_memdel
 ft_strnew
@@ -60,8 +55,6 @@ ft_putchar_fd
 ft_putstr_fd
 ft_putendl_fd
 ft_putnbr_fd
-
-fait : 
 
 Partie bonus
 
