@@ -1,33 +1,33 @@
 Part 1 - Fonctions de la libc
 
-fr_memset 
-fr_bzero 
-fr_memcpy  
-fr_memccpy 
-fr_memmove 
-fr_memchr 
-fr_memcmp 
-fr_strlen X
-fr_strdup 
-fr_strcpy 
-fr_strncpy 
-fr_strcat 
-fr_strncat 
-fr_strlcat 
-fr_strchr 
-fr_strrchr 
-fr_strstr 
-fr_strnstr 
-fr_strcmp 
-fr_strncmp 
-fr_atoi
-fr_isalpha 
-fr_isdigit 
-fr_isalnum 
-fr_isascii 
-fr_isprint 
-fr_toupper 
-fr_tolower
+ft_memset 
+ft_bzero 
+ft_memcpy  
+ft_memccpy 
+ft_memmove 
+ft_memchr 
+ft_memcmp 
+ft_strlen X
+ft_strdup 
+ft_strcpy 
+ft_strncpy 
+ft_strcat 
+ft_strncat 
+ft_strlcat 
+ft_strchr 
+ft_strrchr 
+ft_strstr 
+ft_strnstr 
+ft_strcmp 
+ft_strncmp 
+ft_atoi
+ft_isalpha X
+ft_isdigit X
+ft_isalnum X
+ft_isascii X
+ft_isprint X
+ft_toupper 
+ft_tolower
 
 Part 2 - Fonctions supplémentaires
 

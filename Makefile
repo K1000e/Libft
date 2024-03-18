@@ -17,7 +17,7 @@ NAME = libft.a
 DIR_SRC = ./srcs/
 HEAD = ./includes/
 SRC = $(DIR_SRC)*.c
-OBJ = $(SRC:.c=.o)
+OBJ =  $(SRC:.c=.o)
 RM = rm -f
 
 all : $(NAME)
@@ -26,7 +26,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS)  -c $*.c -I$(HEAD) -o $*.o
+	 $(CC) $(CFLAGS)  -c $*.c -I$(HEAD) -o $*.o
 	
 
 clean: 

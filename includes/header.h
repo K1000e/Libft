@@ -3,7 +3,9 @@
 
 //Fonction de la libc
 
-
+int	ft_isdigit(int c)
+int ft_isalnum(int c)
+int	ft_isdigit(int c)
 
 //Fonctions supplémentaires
 
