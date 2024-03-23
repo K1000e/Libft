@@ -9,25 +9,25 @@ ft_memchr
 ft_memcmp 
 ft_strlen X
 ft_strdup 
-ft_strcpy 
-ft_strncpy 
-ft_strcat 
-ft_strncat 
+ft_strcpy X
+ft_strncpy X
+ft_strcat X
+ft_strncat X
 ft_strlcat 
-ft_strchr 
+ft_strchr X
 ft_strrchr 
 ft_strstr 
 ft_strnstr 
-ft_strcmp 
-ft_strncmp 
-ft_atoi
+ft_strcmp X
+ft_strncmp X
+ft_atoi X
 ft_isalpha X
 ft_isdigit X
 ft_isalnum X
 ft_isascii X
 ft_isprint X
-ft_toupper 
-ft_tolower
+ft_toupper X
+ft_tolower X
 
 Part 2 - Fonctions supplémentaires
 
@@ -51,10 +51,10 @@ ft_putchar X
 ft_putstr X
 ft_putendl X
 ft_putnbr X
-ft_putchar_fd
-ft_putstr_fd
-ft_putendl_fd
-ft_putnbr_fd
+ft_putchar_fd X
+ft_putstr_fd X
+ft_putendl_fd X
+ft_putnbr_fd X
 
 Partie bonus
 

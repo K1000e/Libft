@@ -10,7 +10,7 @@ void	ft_putnbr(int n)
 	}
 	if (n < 0)
 	{
-		ft_putchar('-')
+		ft_putchar('-');
 		n =  -n;
 	}
 	if (n <= 9)
