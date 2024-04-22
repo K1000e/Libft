@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 19:14:30 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/12 01:29:28 by cgorin           ###   ########.fr       */
+/*   Created: 2024/04/22 16:41:30 by cgorin            #+#    #+#             */
+/*   Updated: 2024/04/22 23:16:25 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	t_list *ptr;
+	
+	ptr = *lst;
+	while (ptr)
 	{
-		if ((unsigned int)s1[i] > (unsigned int)s2[i])
-			return (1);
-		else if ((unsigned int)s1[i] < (unsigned int)s2[i])
-			return (-1);
-		i++;
+		ft_lstdelone(ptr, del);
+		ptr = ptr -> next;
 	}
-	return (0);
+	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:51 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/11 17:41:09 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/18 19:37:45 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	dest_ptr = dst;
 	if (!src && !dst)
 		return (dest_ptr);
-	//{
 	while (i < n)
-		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i++;
-		}
-	//}
+	{
+		((char *)dst)[i] = ((char *)src)[i];
+		i++;
+	}
 	return (dest_ptr);
 }
 

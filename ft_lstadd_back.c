@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_bonus.h                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 19:06:03 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/16 14:18:38 by cgorin           ###   ########.fr       */
+/*   Created: 2024/04/18 20:50:10 by cgorin            #+#    #+#             */
+/*   Updated: 2024/04/23 00:03:43 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_BONUS_H
-# define LIBFT_BONUS_H
+#include "libft.h"
 
-# include "libft.h"
-
-typedef struct
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void	*content;
-	struct s_list	*next;
+	t_list *ptr;
+	ptr = *lst;
 	
-}	t_list;
+	if (!ptr)
+		*lst = new;
+	while (ptr -> next != NULL) 
+		ptr = ptr -> next;
+	ptr = new;
+}
 
-//Fonctions bonus
+/* 
 
-t_list *ft_lstnew(void *content);
+	
+lst: L’adresse du pointeur vers le premier élément
+de la liste.
+new: L’adresse du pointeur vers l’élément à
+rajouter à la liste.
 
-#endif
+Ajoute l’élément ’new’ à la fin de la liste. */

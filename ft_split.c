@@ -3,90 +3,90 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 21:14:19 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/12 21:55:41 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/22 19:53:00 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-/* int find_set(const char s1, const char *set)
+int	search_tab_size(const char *s, int c)
 {
-	int x;
+	int	tab_size;
 	
-	x = 0;
-	while (s1[x] != '\0')
-	{
-		if (set[x] == s1)
-			return (1);
-		x++;
-	}
-	return (0);
-}
-int total_len(char const *s1, char set)
-{
-	
-} */
-int search_next_sep(const char *s,  char c)
-{
-	int x;
-	
-	x = 0;
-	while (s[x] != '\0' && s[x] != c)
-		x++;
-	return (x);
-}
-
-int count_word(char const *s, char c)
-{
-	int i;
-	int count;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == c && (s[i + 1] != c && s[i - 1] != c) && i &&  s[i + 1] != '\0')
-		{
-			count++;
-		}
-		i++;
-		//if (!find_set(s1[i], set) && (find_set(s1[i], set)) || i = 0)
-	}
-	return (count);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char **res;
-	int y;
-	int z;
-	
-	y = 0;
-	res = 0;
-	res = (char **) malloc(sizeof(char *) * (count_word(s, c) + 1));
-	if (res == NULL)
-		return (NULL);
+	if (!s)
+		return (0);
+	tab_size = 0;
 	while (*s)
 	{
-		while (*s == c)
-		{
+		while (*s && *s == c)
 			s++;
-			if (*s != c)
-				*res = (char *) malloc(sizeof(char) * (search_next_sep(s, c) + 2));
-		}
-		z = 0;
-		while (*s != c)
-		{
-			res[y][z/*++*/] = *s/*++*/;
+		if (!*s)
+			break ;
+		tab_size++;
+		while (*s && *s != c)
 			s++;
-			z++;
-		}
-		res[y][z] = '\0';
-		y++;
 	}
-	res[y] = NULL;
+	return (tab_size);
+}
+
+int	search_string_size(const char *s, int c)
+{
+	int	string_size;
+	
+	if (!s)
+		return (0);
+	string_size = 0;
+	while (*s && *s != c)
+	{
+		string_size++;
+		s++;
+	}
+	return (string_size);
+}
+
+char **ft_split(char const *s, char c)
+{
+	char	**res;
+	int		tab_size;
+	int		i;
+	int		x;
+
+    tab_size = search_tab_size(s, c);
+	res = (char **) malloc(sizeof(char *) * (tab_size + 1));
+	if (!res || !s)
+	    return (NULL);
+	i = 0;
+	while (*s)
+	{
+		while (*s == c && *s++);
+		if (!*s)
+		    break ;
+		x = 0;
+		res[i] = malloc(sizeof(char) * (search_string_size(s, c) + 1));
+		while (*s != c && *s)
+		{
+			res[i][x++] = *s++;
+		}
+		res[i++][x] = '\0';
+	}
+	res[tab_size] = NULL;
 	return (res);
 }
+
+/* int main(void)
+{
+	char *s = "salut, comment tu vas?";
+    char c = ',';
+    char **tab = ft_split(s, c);
+    int i = 0;
+	while (tab[i])
+    {
+        printf("%s\n", tab[i]);
+        i++;
+    }
+    return (0);
+} */

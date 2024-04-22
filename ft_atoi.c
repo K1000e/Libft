@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 19:13:29 by cgorin            #+#    #+#             */
-/*   Updated: 2024/03/31 20:05:25 by cgorin           ###   ########.fr       */
+/*   Created: 2024/04/22 10:12:27 by cgorin            #+#    #+#             */
+/*   Updated: 2024/04/22 16:34:18 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_isspace(int c)
+{
+	return ((c >= '\t' && c <= '\r') || c == ' ');
+}
+
 int	ft_atoi(const char *str)
 {
-	int	res;
-	int	sign;
+	unsigned int	res;
+	int				sign;
 
 	res = 0;
 	sign = 1;
-	if (!str)
-		return (res);
-	while (*str != 0 && (*str == ' ' || (*str >= '\t' && *str <= '\r')))
+	while (*str != '\0' && (ft_isspace((unsigned int)(*str))))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -31,8 +34,20 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
+		if (res == 2147483648)
+			sign = -1;
 		res = (res * 10) + (*str - '0');
 		str++;
 	}
 	return (res * sign);
 }
+
+/* #include <stdio.h>
+
+int	main(void)
+{
+	printf("%d \n", ft_atoi("4294967129942942"));
+	printf("%d \n", atoi("4294967129942942"));
+	printf("%d \n", ft_atoi("2147483648"));
+	printf("%d \n", atoi("2147483648"));
+} */

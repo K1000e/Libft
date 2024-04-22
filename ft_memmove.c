@@ -6,23 +6,19 @@
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:54 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/11 17:52:17 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/21 20:58:38 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	void	*ptr;
-	
+
 	ptr = dst;
-	if (!src && !dst)
+	if ((!src && !dst) || dst == src)
 		return (dst);
-	if (dst == src)
-		return (dst);
-	
 	if (dst > src)
 	{
 		while (n--)
@@ -33,7 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		while (n--)
 			*(char *)dst++ = *(char *)src++;
 	}
-	return(ptr);
+	return (ptr);
 }
 
 /* #include <string.h>

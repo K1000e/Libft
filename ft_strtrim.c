@@ -6,47 +6,58 @@
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:24 by cgorin            #+#    #+#             */
-/*   Updated: 2024/03/31 19:51:54 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/22 23:58:37 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	find_set(const char s1, const char *set)
+#include <stdio.h>
+
+int	start_str(const char *s1, const char *set)
 {
 	int	x;
-
-	x = 0;
-	while (set[x] != '\0')
-	{
-		if (set[x] == s1)
-			return (1);
-		x++;
-	}
-	return (0);
-}
-
-char const	*start_str(char const *s1, char const *set)
-{
 	int	i;
 
 	i = 0;
-	while (*s1)
+	while (s1[i])
 	{
-		if (find_set(s1[i], set) == 0)
-			return (s1);
-		s1++;
-	}
-	return (s1);
+		x = 0;
+		while (set[x])
+		{
+			if (set[x] == s1[i])
+				break ;
+			x++;
+		}
+		if (set[x] != s1[i])
+			return (i);
+		i++;
+	}	
+	//printf("start %d\n", i);
+	return (i);
 }
 
 int	end_str(char const *s1, char const *set)
 {
 	int	i;
+	int	x;
 
-	i = ft_strlen(s1);
-	while (find_set(s1[i - 1], set) == 1)
-		i--;
+	i = ft_strlen(s1) - 1;
+	while (i >= 0)
+	{
+		x = 0;
+		while (set[x])
+		{
+			if (set[x] == s1[i])
+				break ;
+			x++;
+		}
+		if (set[x] == s1[i])
+			i++;
+		else 
+		    return (i);
+	}
+	//printf("end %d\n", i);
 	return (i);
 }
 
@@ -54,29 +65,48 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
 	int		i;
+	int		start;
+	int		end;
 	int		len;
 
-	s1 = start_str(s1, set);
-	len = end_str(s1, set);
-	i = 0;
-	res = 0;
-	res = (char *) malloc(sizeof(char) * (len + 1));
+	if (!s1)
+	    return (NULL);
+	start = start_str(s1, set);
+	end = end_str(s1, set) + 1;
+	len = end - start;
+	if (len <= 0)
+	    return (ft_strdup(""));
+	//printf("%d\n", len);
+	//if (start > end)
+	    //return (ft_strdup(""));
+	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
-	while (s1[i] != '\0' && len != 0)
+	i = 0;
+	while (s1[i] && i < len &&start < end)
 	{
-		res[i] = s1[i];
-		i++;
-		len--;
+		res[i++] = s1[start++];
+		//i++;
 	}
-	res[i] = '\0';
+	res[len] = '\0';
 	return (res);
 }
 
-/* Function name 
+/* int main(void)
+{
+	 char *s1;
+	char *set;
+
+	s1 = "  abc";
+	set = " "; 
+	printf("%s\n", ft_strtrim("		  	 	Before to trim   ", " 	"));
+	return (0);
+} */
+
+/* Function name
 ft_strtrim
 
-char *ft_strtrim(char const *s1, char const *set);
+char		*ft_strtrim(char const *s1, char const *set);
 
 Paramètres
 s1: La chaîne de caractères à trimmer.

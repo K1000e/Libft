@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 19:14:30 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/12 01:29:28 by cgorin           ###   ########.fr       */
+/*   Created: 2024/04/18 18:20:20 by cgorin            #+#    #+#             */
+/*   Updated: 2024/04/18 20:34:59 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	if (lst && new)
 	{
-		if ((unsigned int)s1[i] > (unsigned int)s2[i])
-			return (1);
-		else if ((unsigned int)s1[i] < (unsigned int)s2[i])
-			return (-1);
-		i++;
+		new -> next = *lst;
+		*lst = new;
 	}
-	return (0);
 }
+
+/* lst: L’adresse du pointeur vers le premier élément
+de la liste.
+new: L’adresse du pointeur vers l’élément à
+rajouter à la liste.
+
+Ajoute l’élément ’new’ au début de la liste.
+ */

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 19:13:09 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/22 20:20:45 by cgorin           ###   ########.fr       */
+/*   Created: 2024/04/22 17:05:23 by cgorin            #+#    #+#             */
+/*   Updated: 2024/04/22 17:22:00 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	t_list res;
+	res =lst->content;
+	
 }

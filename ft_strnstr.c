@@ -6,15 +6,16 @@
 /*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:14:33 by cgorin            #+#    #+#             */
-/*   Updated: 2024/03/31 22:22:44 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/21 22:07:05 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 int	search_needle(const char *haystack, const char *needle)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (needle[i])
@@ -31,11 +32,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (needle[i] == '\0')
+	if (!needle[i])
 		return ((char *)(haystack));
-	while (*haystack && i < len && len - i > ft_strlen(needle))
+	while (*haystack && i < len)
 	{
-		if (*haystack == needle[0])
+		if (*haystack == needle[0] && ft_strlen(needle) <= len - i)
 			if (search_needle(haystack, needle))
 				return ((char *)(haystack));
 		haystack++;
@@ -44,6 +45,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
+/* int main()
+{
+	printf("%s\n", ft_strnstr("abcdefghijklmnopqrstuvwxyz", "jkl", 10));
+} */
 /* The strnstr() function locates the first occurrence of the null-
      terminated string needle in the string haystack, where not more than
      len characters are searched.  Characters that appear after a ‘\0’
