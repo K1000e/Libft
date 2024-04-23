@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:24 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/22 23:58:37 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/23 14:33:16 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
 
 int	start_str(const char *s1, const char *set)
 {
@@ -33,7 +31,7 @@ int	start_str(const char *s1, const char *set)
 			return (i);
 		i++;
 	}	
-	//printf("start %d\n", i);
+	
 	return (i);
 }
 
@@ -42,7 +40,7 @@ int	end_str(char const *s1, char const *set)
 	int	i;
 	int	x;
 
-	i = ft_strlen(s1) - 1;
+	i = ft_strlen(s1);
 	while (i >= 0)
 	{
 		x = 0;
@@ -53,11 +51,10 @@ int	end_str(char const *s1, char const *set)
 			x++;
 		}
 		if (set[x] == s1[i])
-			i++;
+			i--;
 		else 
 		    return (i);
 	}
-	//printf("end %d\n", i);
 	return (i);
 }
 
@@ -71,28 +68,26 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 	    return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	start = start_str(s1, set);
 	end = end_str(s1, set) + 1;
 	len = end - start;
 	if (len <= 0)
 	    return (ft_strdup(""));
-	//printf("%d\n", len);
-	//if (start > end)
-	    //return (ft_strdup(""));
 	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
 	i = 0;
-	while (s1[i] && i < len &&start < end)
+	while (s1[start] && i < len && start < end)
 	{
 		res[i++] = s1[start++];
-		//i++;
 	}
 	res[len] = '\0';
 	return (res);
 }
-
-/* int main(void)
+/* 
+int main(void)
 {
 	 char *s1;
 	char *set;
