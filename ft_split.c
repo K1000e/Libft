@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 21:14:19 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/22 19:53:00 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/23 16:39:11 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	search_tab_size(const char *s, int c)
 {
 	int	tab_size;
-	
+
 	if (!s)
 		return (0);
 	tab_size = 0;
@@ -36,7 +36,7 @@ int	search_tab_size(const char *s, int c)
 int	search_string_size(const char *s, int c)
 {
 	int	string_size;
-	
+
 	if (!s)
 		return (0);
 	string_size = 0;
@@ -48,29 +48,28 @@ int	search_string_size(const char *s, int c)
 	return (string_size);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		tab_size;
 	int		i;
 	int		x;
 
-    tab_size = search_tab_size(s, c);
-	res = (char **) malloc(sizeof(char *) * (tab_size + 1));
+	tab_size = search_tab_size(s, c);
+	res = (char **)malloc(sizeof(char *) * (tab_size + 1));
 	if (!res || !s)
-	    return (NULL);
+		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		while (*s == c && *s++);
+		while (*s == c && *s++)
+			;
 		if (!*s)
-		    break ;
+			break ;
 		x = 0;
 		res[i] = malloc(sizeof(char) * (search_string_size(s, c) + 1));
 		while (*s != c && *s)
-		{
 			res[i][x++] = *s++;
-		}
 		res[i++][x] = '\0';
 	}
 	res[tab_size] = NULL;
@@ -80,13 +79,13 @@ char **ft_split(char const *s, char c)
 /* int main(void)
 {
 	char *s = "salut, comment tu vas?";
-    char c = ',';
-    char **tab = ft_split(s, c);
-    int i = 0;
+	char c = ',';
+	char **tab = ft_split(s, c);
+	int i = 0;
 	while (tab[i])
-    {
-        printf("%s\n", tab[i]);
-        i++;
-    }
-    return (0);
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
+	return (0);
 } */

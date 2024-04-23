@@ -6,14 +6,11 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:19 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/22 21:19:16 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/23 16:46:50 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -31,18 +28,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = 0;
 	if (s1)
-		while (s1[i])
-		{
+		while (s1[i++])
 			res[i] = s1[i];
-			i++;
-		}
-	if  (s2)
+	if (s2)
 		while (*s2)
 			res[i++] = *s2++;
 	res[i] = '\0';
 	return (res);
 }
-
 
 /* int main(int argc, char **argv)
 {
@@ -51,5 +44,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	else
 		printf("%s\n", ft_strjoin(argv[1], argv[2]));
 
-	return 0;
+	return (0);
 } */

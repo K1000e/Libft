@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:24 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 14:33:16 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/23 16:36:35 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int	start_str(const char *s1, const char *set)
 		if (set[x] != s1[i])
 			return (i);
 		i++;
-	}	
-	
+	}
 	return (i);
 }
 
@@ -52,8 +51,8 @@ int	end_str(char const *s1, char const *set)
 		}
 		if (set[x] == s1[i])
 			i--;
-		else 
-		    return (i);
+		else
+			return (i);
 	}
 	return (i);
 }
@@ -67,14 +66,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 
 	if (!s1)
-	    return (NULL);
+		return (NULL);
 	if (!set)
 		return (ft_strdup(s1));
 	start = start_str(s1, set);
 	end = end_str(s1, set) + 1;
 	len = end - start;
 	if (len <= 0)
-	    return (ft_strdup(""));
+		return (ft_strdup(""));
 	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
@@ -86,22 +85,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res[len] = '\0';
 	return (res);
 }
-/* 
-int main(void)
+/*
+int	main(void)
 {
-	 char *s1;
+		char *s1;
 	char *set;
 
 	s1 = "  abc";
-	set = " "; 
-	printf("%s\n", ft_strtrim("		  	 	Before to trim   ", " 	"));
+	set = " ";
+	printf("%s\n", ft_strtrim("				 	Before to trim   ", " 	"));
 	return (0);
 } */
 
 /* Function name
 ft_strtrim
 
-char		*ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);
 
 Paramètres
 s1: La chaîne de caractères à trimmer.
