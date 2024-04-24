@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:41:30 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 16:39:58 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 16:49:49 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*ptr;
 
 	ptr = *lst;
-	while (ptr)
+	if (ptr && del)
 	{
-		ft_lstdelone(ptr, del);
-		ptr = ptr->next;
+		while (ptr)
+		{
+			del(ptr->content);
+			ptr = ptr->next;
+		}
+		*lst = NULL;
+		free(ptr);
 	}
-	*lst = NULL;
 }

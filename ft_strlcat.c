@@ -3,43 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:14:15 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/12 00:52:50 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 15:42:08 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	x;
-	size_t	size;
-
-	i = ft_strlen(src);
-	x = ft_strlen(dst);
-	
-	if (x == dstsize)
-		return (x + i); 
-	if (dstsize > (x + i))
-		while (src[i])
-			dst[--x] = src[--i];
-	else 
-	{
-		while (src[i] && x < (dstsize - - 1))
-		{
-			dst[--x] = src[--i];
-			i++;
-			x++;
-		}	
-		dst[x] = '\0';
-	}
-	size = x + ;
-	return (size);
-
-} */
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {

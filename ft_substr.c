@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:26 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 16:36:32 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 16:39:59 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	len_s = ft_strlen(s);
+	if (len > len_s - start)
+		len = len_s - start;
 	if (start > len_s)
 	{
 		res = (char *)malloc(sizeof(char) * (1));

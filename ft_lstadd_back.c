@@ -6,7 +6,7 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 20:50:10 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 16:37:50 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 16:49:25 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,26 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ptr;
 
-	ptr = *lst;
-	if (!ptr)
+	if (!new)
+		return ;
+	if (!*lst)
+	{
 		*lst = new;
-	while (ptr->next != NULL)
-		ptr = ptr->next;
-	ptr = new;
+		return ;
+	}
+	ptr = ft_lstlast(*lst);
+	ptr->next = new;
 }
 
 /*
+t_list	*ptr;
 
+	ptr = *lst;
+	if (!ptr)
+		*lst = new;
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr = new;
 
 lst: L’adresse du pointeur vers le premier élément
 de la liste.
