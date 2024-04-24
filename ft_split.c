@@ -6,14 +6,13 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 21:14:19 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 16:39:11 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:57:24 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	search_tab_size(const char *s, int c)
+static int	search_tab_size(const char *s, int c)
 {
 	int	tab_size;
 
@@ -33,7 +32,7 @@ int	search_tab_size(const char *s, int c)
 	return (tab_size);
 }
 
-int	search_string_size(const char *s, int c)
+static int	search_string_size(const char *s, int c)
 {
 	int	string_size;
 

@@ -6,13 +6,13 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:13:24 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/23 16:36:35 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:58:02 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	start_str(const char *s1, const char *set)
+static int	start_str(const char *s1, const char *set)
 {
 	int	x;
 	int	i;
@@ -34,7 +34,7 @@ int	start_str(const char *s1, const char *set)
 	return (i);
 }
 
-int	end_str(char const *s1, char const *set)
+static int	end_str(char const *s1, char const *set)
 {
 	int	i;
 	int	x;

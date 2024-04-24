@@ -6,13 +6,13 @@
 /*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:12:27 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/22 16:34:18 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:41:42 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return ((c >= '\t' && c <= '\r') || c == ' ');
 }

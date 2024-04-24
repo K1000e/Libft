@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:14:33 by cgorin            #+#    #+#             */
-/*   Updated: 2024/04/21 22:07:05 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:57:51 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
-int	search_needle(const char *haystack, const char *needle)
+static int	search_needle(const char *haystack, const char *needle)
 {
 	size_t	i;
 

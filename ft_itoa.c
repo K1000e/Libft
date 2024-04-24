@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgorin <cgorin@student.42nice.fr>          +#+  +:+       +#+        */
+/*   By: cgorin <cgorin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 19:12:53 by cgorin            #+#    #+#             */
-/*   Updated: 2024/03/31 21:45:47 by cgorin           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:42:10 by cgorin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nbrlen(int n)
+static int	nbrlen(int n)
 {
 	int		len;
 
@@ -27,7 +27,7 @@ int	nbrlen(int n)
 	return (len);
 }
 
-char	*ft_newstr(int n)
+static char	*ft_newstr(int n)
 {
 	char	*str;
 
@@ -38,7 +38,7 @@ char	*ft_newstr(int n)
 	return (str);
 }
 
-int	ft_abs(int n)
+static int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);
